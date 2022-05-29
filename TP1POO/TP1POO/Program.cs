@@ -37,8 +37,43 @@ namespace TP1POO
             {
                 ListaTransportePublico.Add(new Taxi($"Taxi {i + 1}", ListaTaxis[i]));
             }
+            Console.WriteLine("\n");
+            Console.WriteLine("Lista final de Transporte:");
+            Console.WriteLine("\n");
+            foreach (var item in ListaTransportePublico)
+            {
+                Console.WriteLine(item.Nombre + " contiene: " + item.Devolver() + " pasajeros.");
+                Console.WriteLine("----------------------------------");
+            }
+            Console.ReadKey();
         }
-     
-       
+        //Validacion para omnibus de solo numeros enteros (sin coma, punto, negativos, cadenas) comprendidos entre 0 y 100
+        public static int VerificarOmnibus(string comando)
+        {
+            int valor;
+            Console.WriteLine(comando);
+            var numero = Console.ReadLine();
+            while (!int.TryParse(numero, out valor) || int.Parse(numero) > 100 || int.Parse(numero) < 0)
+            {
+                Console.WriteLine("Error!!! Configure correctamente los datos de entrada, intente de nuevo");
+                Console.WriteLine(comando);
+                numero = Console.ReadLine();
+            }
+            return Int16.Parse(numero);
+        }
+        //idem comentario anterior, no permitir ingreso de datos erroneos para los taxis.
+        public static int VerificarTaxis(string comando)
+        {
+            int valor;
+            Console.WriteLine(comando);
+            var numero = Console.ReadLine();
+            while (!int.TryParse(numero, out valor) || int.Parse(numero) > 4 || int.Parse(numero) < 0 )
+            {
+                Console.WriteLine("Error!!! Configure correctamente los datos de entrada, intente de nuevo");
+                Console.WriteLine(comando);
+                numero = Console.ReadLine();
+            }
+            return Int16.Parse(numero);
+        }
     }
 }
