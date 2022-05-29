@@ -13,20 +13,20 @@ namespace TP1POO
             Console.WriteLine("Ingrese una Cantidad de Pasajeros para Omnibus comprendida entre 0 y 100: ");
             Console.WriteLine("\n");
             List<int> ListaOmnibus = new List<int>();
-            /*ListaOmnibus.Add("Ingrese cantidad de pasajeros para el Omnibus 1: ");
-            ListaOmnibus.Add("Ingrese cantidad de pasajeros para el Omnibus 2: ");
-            ListaOmnibus.Add("Ingrese cantidad de pasajeros para el Omnibus 3: ");
-            ListaOmnibus.Add("Ingrese cantidad de pasajeros para el Omnibus 4: ");
-            ListaOmnibus.Add("Ingrese cantidad de pasajeros para el Omnibus 5: ");
+            ListaOmnibus.Add(VerificarOmnibus("Ingrese cantidad de pasajeros para el Omnibus 1: "));
+            ListaOmnibus.Add(VerificarOmnibus("Ingrese cantidad de pasajeros para el Omnibus 2: "));
+            ListaOmnibus.Add(VerificarOmnibus("Ingrese cantidad de pasajeros para el Omnibus 3: "));
+            ListaOmnibus.Add(VerificarOmnibus("Ingrese cantidad de pasajeros para el Omnibus 4: "));
+            ListaOmnibus.Add(VerificarOmnibus("Ingrese cantidad de pasajeros para el Omnibus 5: "));
             Console.WriteLine("\n");
             Console.WriteLine("Ahora vamos a ingresar una cantidad de pasajeros para Taxis comprendida entre 0 y 4: ");
-            Console.WriteLine("\n");*/
+            Console.WriteLine("\n");
             List<int> ListaTaxis = new List<int>();
-            /*ListaTaxis.Add("Ingrese cantidad de pasajeros para el Taxi 1: ");
-            ListaTaxis.Add("Ingrese cantidad de pasajeros para el Taxi 2: ");
-            ListaTaxis.Add("Ingrese cantidad de pasajeros para el Taxi 3: ");
-            ListaTaxis.Add("Ingrese cantidad de pasajeros para el Taxi 4: ");
-            ListaTaxis.Add("Ingrese cantidad de pasajeros para el Taxi 5: ");*/
+            ListaTaxis.Add(VerificarTaxis("Ingrese cantidad de pasajeros para el Taxi 1: "));
+            ListaTaxis.Add(VerificarTaxis("Ingrese cantidad de pasajeros para el Taxi 2: "));
+            ListaTaxis.Add(VerificarTaxis("Ingrese cantidad de pasajeros para el Taxi 3: "));
+            ListaTaxis.Add(VerificarTaxis("Ingrese cantidad de pasajeros para el Taxi 4: "));
+            ListaTaxis.Add(VerificarTaxis("Ingrese cantidad de pasajeros para el Taxi 5: "));
 
             List<TransportePublico> ListaTransportePublico = new List<TransportePublico>();
             for (int i = 0; i < ListaOmnibus.Count; i++)
@@ -61,7 +61,7 @@ namespace TP1POO
             }
             return Int16.Parse(numero);
         }
-        //idem comentario anterior, no permitir ingreso de datos erroneos para los taxis.
+        //idem comentario anterior, no permitir ingreso de datos erroneos para los taxis, datos entre 0 y 4
         public static int VerificarTaxis(string comando)
         {
             int valor;
