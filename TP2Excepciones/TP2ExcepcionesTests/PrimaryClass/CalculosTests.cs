@@ -14,11 +14,12 @@ namespace TP2Excepciones.PrimaryClass.Tests
         [TestMethod()]
         public void DividirTest()
         {
+            //no importa el resultado tiene que arrojar una excepcion!!
             int resultadoEsperado = 0;
             Calculos oCalculo = new Calculos();
             int resultadoFinal = oCalculo.Dividir(10);
 
-            Assert.AreNotEqual(resultadoEsperado, resultadoFinal);
+            Assert.AreEqual(resultadoEsperado, resultadoFinal);
         }
 
         [TestMethod()]

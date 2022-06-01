@@ -15,7 +15,7 @@ namespace TP2Excepciones.ExtensionMethods
             try
             {           
                 //Harcodeo la division por cero en el metodo Dividir, dado que solo quiere ver un error simple no asi el ejercicio siguiente.
-                Console.WriteLine("Ingrese un numero a dividir: ");
+                Console.WriteLine("Ingrese un numero a dividir sobre Cero: ");
                 int dividendo = int.Parse(Console.ReadLine());
                 int resultado = Calculin.Dividir(dividendo);
                 //Console.WriteLine($"El resultado de la division es: {resultado}");
