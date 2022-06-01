@@ -8,7 +8,7 @@ namespace TP2Excepciones.ExceptionModels
 {
     public class CustomException : Exception
     {
-        public CustomException(string message) : base ("Sobrecargando la CustomException / " + message)
+        public CustomException(string message) : base ("Sobre Cargando la CustomException / " + message)
         {
 
         }

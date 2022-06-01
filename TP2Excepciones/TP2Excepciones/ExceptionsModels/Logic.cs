@@ -23,7 +23,7 @@ namespace TP2Excepciones.Exceptions
         }
         public static void DevolviendoExcepcionPersonalizada()
         {
-            throw new CustomException("Enviando un mensaje de excepcion personalizado");
+            throw new CustomException("Mensaje de excepcion personalizado");
         }      
     }
 }
