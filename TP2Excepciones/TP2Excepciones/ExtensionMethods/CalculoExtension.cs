@@ -10,13 +10,11 @@ namespace TP2Excepciones.ExtensionMethods
 {
     public static class CalculoExtension
     {
-        public static void DivisionExtension(this Calculos Calculin)
+        public static void DivisionExtension(this Calculos Calculin, int dividendo)
         {
             try
             {           
-                //Harcodeo la division por cero en el metodo Dividir, dado que solo quiere ver un error simple no asi el ejercicio siguiente.
-                Console.WriteLine("Ingrese un numero a dividir sobre Cero: ");
-                int dividendo = int.Parse(Console.ReadLine());
+                //Harcodeo la division por cero en el metodo Dividir, dado que solo quiere ver un error simple no asi el ejercicio siguiente.               
                 int resultado = Calculin.Dividir(dividendo);
                 //Console.WriteLine($"El resultado de la division es: {resultado}");
             }
@@ -25,14 +23,11 @@ namespace TP2Excepciones.ExtensionMethods
                 throw ex;
             }         
         }
-        public static void DivisionExtension2(this Calculos Calculin)
+        public static void DivisionExtension2(this Calculos Calculin, int dividendo, int divisor)
         {
             try
             {
-                Console.WriteLine("Ingrese un numero a dividir: ");
-                int dividendo = int.Parse(Console.ReadLine());
-                Console.WriteLine("Ingrese el divisor: ");
-                int divisor = int.Parse(Console.ReadLine());
+               
                 int resultado = Calculin.Dividir2(dividendo, divisor);
                 Console.WriteLine($"El resultado de la division es: {resultado}");
             }

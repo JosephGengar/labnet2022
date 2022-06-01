@@ -12,8 +12,7 @@ namespace TP2Excepciones.Exceptions
         public static void DevolverSumaNull(int? number1, int number2)
         {
             try
-            {
-                Console.WriteLine("EJERCICIO 3: Disparando una Excepcion.. \n");
+            {                
                 int resultado = number1.Value + number2;
                 Console.WriteLine($"El resultado es {resultado}");
                 //No hace falta, siempre arroja excepcion, esta hardcodeado un null como en el video
@@ -24,8 +23,7 @@ namespace TP2Excepciones.Exceptions
             }
         }
         public static void DevolviendoExcepcionPersonalizada()
-        {
-            Console.WriteLine("EJERCICIO 4: Disparando una Excepcion Personalizada.. \n");
+        {           
             throw new CustomException("Mensaje de excepcion personalizado");
         }      
     }
