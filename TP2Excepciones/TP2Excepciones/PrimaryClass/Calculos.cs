@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TP2Excepciones.Exceptions
+namespace TP2Excepciones.PrimaryClass
 {
-    public class CalculoException
+    public class Calculos
     {
         public int Dividir(int number)
         {

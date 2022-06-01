@@ -43,9 +43,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Exceptions\CalculoException.cs" />
-    <Compile Include="Exceptions\Logic.cs" />
+    <Compile Include="ExceptionsModels\CustomException.cs" />
+    <Compile Include="ExceptionsModels\Logic.cs" />
     <Compile Include="ExtensionMethods\CalculoExtension.cs" />
+    <Compile Include="PrimaryClass\Calculos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

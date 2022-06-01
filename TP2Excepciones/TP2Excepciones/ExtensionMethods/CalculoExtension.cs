@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TP2Excepciones.Exceptions;
+using TP2Excepciones.PrimaryClass;
 
 namespace TP2Excepciones.ExtensionMethods
 {
     public static class CalculoExtension
     {
-        public static void DivisionExtension(this CalculoException Calculin)
+        public static void DivisionExtension(this Calculos Calculin)
         {
             try
             {           
@@ -24,7 +25,7 @@ namespace TP2Excepciones.ExtensionMethods
                 throw ex;
             }         
         }
-        public static void DivisionExtension2(this CalculoException Calculin)
+        public static void DivisionExtension2(this Calculos Calculin)
         {
             try
             {
