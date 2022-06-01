@@ -11,15 +11,14 @@ namespace TP2Excepciones.PrimaryClass.Tests
     [TestClass()]
     public class CalculosTests
     {
+        [ExpectedException(typeof(DivideByZeroException))]
         [TestMethod()]
         public void DividirTest()
         {
-            //no importa el resultado tiene que arrojar una excepcion!!
-            int resultadoEsperado = 0;
+            //no importa el resultado tiene que arrojar una excepcion!!           
             Calculos oCalculo = new Calculos();
             int resultadoFinal = oCalculo.Dividir(10);
-
-            Assert.AreEqual(resultadoEsperado, resultadoFinal);
+                   
         }
 
         [TestMethod()]
