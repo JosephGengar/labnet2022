@@ -83,6 +83,7 @@
             this.BtnActualizar.TabIndex = 4;
             this.BtnActualizar.Text = "Refresh";
             this.BtnActualizar.UseVisualStyleBackColor = true;
+            this.BtnActualizar.Click += new System.EventHandler(this.BtnActualizar_Click);
             // 
             // button5
             // 

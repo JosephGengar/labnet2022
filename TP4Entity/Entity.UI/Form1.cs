@@ -34,5 +34,11 @@ namespace Entity.UI
             frmT.ShowDialog();
             UpdateList();
         }
+
+        private void BtnActualizar_Click(object sender, EventArgs e)
+        {
+            UpdateList();
+        }
+
     }
 }
