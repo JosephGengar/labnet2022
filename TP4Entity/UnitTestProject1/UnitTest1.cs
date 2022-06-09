@@ -13,9 +13,9 @@ namespace UnitTestProject1
         {
             using (var Context = new NorthWindContext())
             {
-                var result = Context.Territories.ToList();
-                Assert.IsTrue(result.Count > 0);
                 //acordarse de colocar en app.config el connectionstring..
+                var result = Context.Territories.ToList();
+                Assert.IsTrue(result.Count > 0);            
             }
         }
         [TestMethod()]
