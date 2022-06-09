@@ -121,7 +121,8 @@
             this.Controls.Add(this.BtnAdd);
             this.Controls.Add(this.DgvListar);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "NorthWind";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvListar)).EndInit();
             this.ResumeLayout(false);

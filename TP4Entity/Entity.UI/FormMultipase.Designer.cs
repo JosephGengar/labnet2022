@@ -91,6 +91,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FormMultipase";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add Shippers";
             this.Load += new System.EventHandler(this.FormMultipase_Load);
             this.ResumeLayout(false);

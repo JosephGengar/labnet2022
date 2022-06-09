@@ -75,9 +75,33 @@ namespace Entity.UI
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
-
+            ShippersLogic oShippersL = new ShippersLogic();
+            int? id = GetId();
+            try
+            {
+                DialogResult resul = MessageBox.Show("Are you sure to delete this item?", "Confirm Delete!!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (resul == DialogResult.Yes)
+                {                                  
+                    oShippersL.Delete((int)id);
+                    UpdateList();
+                    MessageBox.Show("Deleted Item!!", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.InnerException != null)
+                {
+                    MessageBox.Show("be careful!!, no conventional deletion was done");
+                    oShippersL.LogicDelete((int)id);
+                    UpdateList();
+                    MessageBox.Show("Error with delete operation, however the system looked for a way to solve it");
+                }
+                else
+                {
+                    MessageBox.Show("unexpected error");
+                }
+            }
         }
-
         private int? GetId()
         {
             try

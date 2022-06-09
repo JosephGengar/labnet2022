@@ -37,7 +37,7 @@ namespace Entity.logic
             Context.Shippers.Remove(ShipperD);
             Context.SaveChanges();
         }
-        public void DeleteLogic(int id)
+        public void LogicDelete(int id)
         {
             var ShipperDL = Context.Shippers.Find(id);
             ShipperDL.Phone = null;
