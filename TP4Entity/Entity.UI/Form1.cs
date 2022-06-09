@@ -40,5 +40,54 @@ namespace Entity.UI
             UpdateList();
         }
 
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FormMultipase frmM = new FormMultipase();
+                frmM.ShowDialog();
+                UpdateList();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ups, we have a problem: " + ex.Message);
+            }
+        }
+
+        private void BtnEdit_Click(object sender, EventArgs e)
+        {
+            int? id = GetId();
+            if (id != null)
+            {
+                try
+                {
+                    FormMultipase frmM = new FormMultipase(id);
+                    frmM.ShowDialog();
+                    UpdateList();
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Ups!! We have a problem");
+                }
+            }
+        }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private int? GetId()
+        {
+            try
+            {
+                return int.Parse(DgvListar.Rows[DgvListar.CurrentRow.Index].Cells[0].Value.ToString());
+            }
+            catch (Exception)
+            {
+               return null;
+            }
+        }
     }
 }

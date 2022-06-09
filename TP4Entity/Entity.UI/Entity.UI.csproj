@@ -59,6 +59,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormMultipase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMultipase.Designer.cs">
+      <DependentUpon>FormMultipase.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormTerritories.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMultipase.resx">
+      <DependentUpon>FormMultipase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormTerritories.resx">
       <DependentUpon>FormTerritories.cs</DependentUpon>

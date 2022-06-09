@@ -56,6 +56,7 @@
             this.BtnAdd.TabIndex = 1;
             this.BtnAdd.Text = "Add";
             this.BtnAdd.UseVisualStyleBackColor = true;
+            this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // BtnEdit
             // 
@@ -65,6 +66,7 @@
             this.BtnEdit.TabIndex = 2;
             this.BtnEdit.Text = "Edit";
             this.BtnEdit.UseVisualStyleBackColor = true;
+            this.BtnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
             // 
             // BtnDelete
             // 
@@ -74,6 +76,7 @@
             this.BtnDelete.TabIndex = 3;
             this.BtnDelete.Text = "Delete";
             this.BtnDelete.UseVisualStyleBackColor = true;
+            this.BtnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
             // BtnActualizar
             // 
