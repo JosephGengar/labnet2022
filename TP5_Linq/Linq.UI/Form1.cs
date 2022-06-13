@@ -23,53 +23,103 @@ namespace Linq.UI
         }
         private void BtnEjer1_Click(object sender, EventArgs e)
         {
-            CustomersLogic oCustL = new CustomersLogic();
-            DgvQuerys.DataSource = oCustL.GetCustomers();
+            try
+            {
+                CustomersLogic oCustL = new CustomersLogic();
+                DgvQuerys.DataSource = oCustL.GetCustomers();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ups!! He have a problem...");
+            }
+          
         }
         private void BtnEjer2_Click(object sender, EventArgs e)
         {
-            ProductsLogic oProdL = new ProductsLogic();
-            var Data = oProdL.GetProductsOfStock();
-            DgvQuerys.DataSource = Data;
-            MessageBox.Show($"This Query contains: {Data.Count()} registers");
+            try
+            {
+                ProductsLogic oProdL = new ProductsLogic();
+                var Data = oProdL.GetProductsOfStock();
+                DgvQuerys.DataSource = Data;
+                MessageBox.Show($"This Query contains: {Data.Count()} registers");
+            }
+            catch (Exception)
+            { 
+                MessageBox.Show("Ups!! We have a problem....");
+            }
+           
         }
         private void BtnEjer3_Click(object sender, EventArgs e)
         {
-            ProductsLogic oProdL = new ProductsLogic();
-            var Data = oProdL.GetProductsWStockM3();
-            DgvQuerys.DataSource = Data;
-            MessageBox.Show($"This Query contains: {Data.Count()} registers");
+            try
+            {
+                ProductsLogic oProdL = new ProductsLogic();
+                var Data = oProdL.GetProductsWStockM3();
+                DgvQuerys.DataSource = Data;
+                MessageBox.Show($"This Query contains: {Data.Count()} registers");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ups!! We have a problem....");
+            }         
         }
         private void BtnEjer4_Click(object sender, EventArgs e)
         {
-            CustomersLogic oCustL = new CustomersLogic();
-            var Data = oCustL.GetCustomersWA();
-            DgvQuerys.DataSource = Data;
-            MessageBox.Show($"This Query contains: {Data.Count()} registers");
+            try
+            {
+                CustomersLogic oCustL = new CustomersLogic();
+                var Data = oCustL.GetCustomersWA();
+                DgvQuerys.DataSource = Data;
+                MessageBox.Show($"This Query contains: {Data.Count()} registers");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ups!! We have a problem...");
+            }
         }
         private void BtnEjer5_Click(object sender, EventArgs e)
         {
-            ProductsLogic oProdL = new ProductsLogic();
-            var Data = oProdL.GetProduct789();
-            DgvQuerys.DataSource = Data;
-            if (Data[0] == null)
+            try
             {
-                MessageBox.Show("No found register!!");
+                ProductsLogic oProdL = new ProductsLogic();
+                var Data = oProdL.GetProduct789();
+                DgvQuerys.DataSource = Data;
+                if (Data[0] == null)
+                {
+                    MessageBox.Show("No found register!!");
+                }
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Ups!! We have a problem...");
+            }         
         }
         private void BtnEjer6_Click(object sender, EventArgs e)
         {
-            CustomersLogic oCustL = new CustomersLogic();
-            DgvQuerys.DataSource = oCustL.GetCustomersMM();
-
+            try
+            {
+                CustomersLogic oCustL = new CustomersLogic();
+                DgvQuerys.DataSource = oCustL.GetCustomersMM();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ups!! He have a problem...");
+            }
         }
 
         private void BtnEjer7_Click(object sender, EventArgs e)
         {
-            CustomersLogic oCustL = new CustomersLogic();
-            var Data = oCustL.GetCustomers_Orders();
-            DgvQuerys.DataSource = Data;
-            MessageBox.Show($"This Query contains: {Data.Count()} registers");
+            try
+            {
+                CustomersLogic oCustL = new CustomersLogic();
+                var Data = oCustL.GetCustomers_Orders();
+                DgvQuerys.DataSource = Data;
+                MessageBox.Show($"This Query contains: {Data.Count()} registers");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Ups!!! We have a problem...");
+            }
         }
 
         private void BtnSecondPage_Click(object sender, EventArgs e)
