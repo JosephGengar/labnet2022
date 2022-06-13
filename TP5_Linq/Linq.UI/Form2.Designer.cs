@@ -56,6 +56,7 @@
             this.BtnEx8.TabIndex = 1;
             this.BtnEx8.Text = "Exercise 8";
             this.BtnEx8.UseVisualStyleBackColor = true;
+            this.BtnEx8.Click += new System.EventHandler(this.BtnEx8_Click);
             // 
             // BtnEx9
             // 
@@ -65,6 +66,7 @@
             this.BtnEx9.TabIndex = 2;
             this.BtnEx9.Text = "Exercise 9";
             this.BtnEx9.UseVisualStyleBackColor = true;
+            this.BtnEx9.Click += new System.EventHandler(this.BtnEx9_Click);
             // 
             // BtnEx10
             // 
@@ -74,6 +76,7 @@
             this.BtnEx10.TabIndex = 3;
             this.BtnEx10.Text = "Exercise 10";
             this.BtnEx10.UseVisualStyleBackColor = true;
+            this.BtnEx10.Click += new System.EventHandler(this.BtnEx10_Click);
             // 
             // BtnEx11
             // 
@@ -83,6 +86,7 @@
             this.BtnEx11.TabIndex = 4;
             this.BtnEx11.Text = "Exercise 11";
             this.BtnEx11.UseVisualStyleBackColor = true;
+            this.BtnEx11.Click += new System.EventHandler(this.BtnEx11_Click);
             // 
             // BtnEx12
             // 
@@ -92,6 +96,7 @@
             this.BtnEx12.TabIndex = 5;
             this.BtnEx12.Text = "Exercise 12";
             this.BtnEx12.UseVisualStyleBackColor = true;
+            this.BtnEx12.Click += new System.EventHandler(this.BtnEx12_Click);
             // 
             // BtnEx13
             // 
@@ -101,6 +106,7 @@
             this.BtnEx13.TabIndex = 6;
             this.BtnEx13.Text = "Exercise 13";
             this.BtnEx13.UseVisualStyleBackColor = true;
+            this.BtnEx13.Click += new System.EventHandler(this.BtnEx13_Click);
             // 
             // Form2
             // 
@@ -116,6 +122,7 @@
             this.Controls.Add(this.DgvQuery2);
             this.Name = "Form2";
             this.Text = "Linq Second Page";
+            this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DgvQuery2)).EndInit();
             this.ResumeLayout(false);
 

@@ -46,5 +46,24 @@ namespace Linq.Logic
                           }).ToList();
             return query7;
         }
+        public List<Customers> GetCustomers3R()
+        {
+            var query8 = db.Customers.Where(c => c.Region == "WA").Take(3).ToList();
+            return query8;
+        }
+        public List<Customer_OrdersCantModel> GetCust_Order()
+        {
+            var query13 = (from c in db.Customers
+                           join o in db.Orders
+                           on c.CustomerID equals o.CustomerID
+                           group o by c into or
+                           let NumOrd = or.Count()
+                           select new Customer_OrdersCantModel
+                           {
+                               CompanyName = or.Key.CompanyName,
+                               Quantity = NumOrd
+                           }).ToList();
+            return query13;
+        }
     }
 }

@@ -55,6 +55,8 @@
     <Compile Include="CustomersLogic.cs" />
     <Compile Include="Models\CustomersMMModel.cs" />
     <Compile Include="Models\Customers_OrdersModel.cs" />
+    <Compile Include="Models\Customer_OrdersCantModel.cs" />
+    <Compile Include="Models\Product_CatModel.cs" />
     <Compile Include="ProductsLogic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

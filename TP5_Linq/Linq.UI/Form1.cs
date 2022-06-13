@@ -77,5 +77,10 @@ namespace Linq.UI
             Form2 frm2 = new Form2();
             frm2.ShowDialog();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
