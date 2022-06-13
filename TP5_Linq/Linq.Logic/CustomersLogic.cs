@@ -42,7 +42,9 @@ namespace Linq.Logic
                           select new Customers_OrdersModel
                           {
                               CompanyName = c.CompanyName,
-                              OrderID = o.OrderID
+                              OrderID = o.OrderID,
+                              Region = c.Region,
+                              DateTime1997 = o.OrderDate
                           }).ToList();
             return query7;
         }

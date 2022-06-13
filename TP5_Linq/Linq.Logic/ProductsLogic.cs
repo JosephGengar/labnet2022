@@ -49,7 +49,7 @@ namespace Linq.Logic
                            select new Product_CatModel
                            {
                                ProductName = p.ProductName,
-                               CategoryName = c.CategoryName
+                               CategoryName = c.CategoryName,                              
                            }).ToList();
             return query11;
         }
