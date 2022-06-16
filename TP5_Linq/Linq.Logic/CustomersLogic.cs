@@ -66,6 +66,7 @@ namespace Linq.Logic
                                Quantity = NumOrd
                            }).ToList();
             return query13;
+            //en clase group c by new { companyName, OrderID } into or ......
         }
     }
 }
