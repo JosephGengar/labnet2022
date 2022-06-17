@@ -12,10 +12,12 @@ namespace Entity.UI.MVC.Models.BackModels
         public int ShipperID { get; set; }
 
         [Required]
-        [StringLength(40)]
+        [StringLength(45)]
+        [Display(Name = "Company Name")]
         public string CompanyName { get; set; }
         [Required]
-        [StringLength(24)]
+        [StringLength(25)]
+        [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
     }
 }

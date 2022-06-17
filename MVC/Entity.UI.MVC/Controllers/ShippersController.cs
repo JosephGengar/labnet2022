@@ -27,7 +27,25 @@ namespace Entity.UI.MVC.Controllers
             ViewBag.Alert = "List Loaded";
             return View(ShippersBackViewList);
         }
-
+        [HttpGet]
+        public ActionResult Add()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Add(ShippersBackView model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            Shippers oShippers = new Shippers();
+            oShippers.CompanyName = model.CompanyName;
+            oShippers.Phone = model.PhoneNumber;
+            oShippersL.Add(oShippers);
+            ViewBag.text = "Add Shipper!!!";
+            return Redirect(Url.Content("~/Shippers/"));
+        }
 
 
 

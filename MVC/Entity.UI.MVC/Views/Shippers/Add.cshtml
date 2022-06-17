@@ -1,0 +1,39 @@
+﻿@model Entity.UI.MVC.Models.BackModels.ShippersBackView
+@{
+    ViewBag.Title = "Shippers Creeepers";
+}
+
+<h2>Shippers Creepers</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>@ViewBag.Message Shipper</h2>
+        </div>
+    </div>
+
+    @using (Html.BeginForm("Add", "Shippers", FormMethod.Post, new { role = "form", @class = "" }))
+    {
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    @Html.LabelFor(s => s.CompanyName)
+                    @Html.TextBoxFor(s => s.CompanyName, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(s => s.CompanyName, null, new { @class = "text-danger" })
+                </div>
+                <div>
+                    @Html.LabelFor(s => s.PhoneNumber)
+                    @Html.TextBoxFor(s => s.PhoneNumber, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(s => s.PhoneNumber, null, new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-12">
+                <button class="btn btn-success" value="Save" type="submit">Save</button>
+            </div>
+        </div>
+    }
+
+</div>

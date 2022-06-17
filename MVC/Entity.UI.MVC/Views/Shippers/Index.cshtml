@@ -10,13 +10,13 @@
         alert("@ViewBag.Alert");
     </script>
 }
-@if (ViewBag.Script != null)
+@if (ViewBag.text != null)
 {
     <div class="alert alert-dismissable alert-info">
         <button type="button" class="close" data-dismiss="alert">
             &times;
         </button>
-        <strong>Attencion!</strong> @ViewBag.Script
+        <strong>Attencion!</strong> @ViewBag.text
     </div>
 }
 <div class="container">
@@ -42,9 +42,8 @@
                         <td>@item.CompanyName</td>
                         <td>@item.PhoneNumber</td>
                         <td>
-                            <input onclick="jsDelete(@item.ShipperID);" type="button" value="Delete" class="btn btn-danger" />
-                            @Html.ActionLink("Delete", "Delete", new { id = item.ShipperID }, new { @class = "btn btn-warning", onclick = "return cofirm('Are you sure?')", @id = "BtnDelete" })
                             @Html.ActionLink("Edit", "Edit", new { id = item.ShipperID }, new { @class = "btn btn-primary" })
+                            <input onclick="jsDelete(@item.ShipperID);" type="button" value="Delete" class="btn btn-danger" />
                         </td>
                     </tr>
                 }
@@ -52,6 +51,7 @@
         </div>
     </div>
 </div>
+
 @section scripts{
     <script>
          function jsDelete(id) {
