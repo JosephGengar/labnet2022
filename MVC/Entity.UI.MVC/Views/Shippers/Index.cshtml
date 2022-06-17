@@ -1,0 +1,76 @@
+﻿@model List<Entity.UI.MVC.Models.BackModels.ShippersBackView>
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<br />
+@if (ViewBag.Alert != null)
+{
+    <script>
+        alert("@ViewBag.Alert");
+    </script>
+}
+@if (ViewBag.Script != null)
+{
+    <div class="alert alert-dismissable alert-info">
+        <button type="button" class="close" data-dismiss="alert">
+            &times;
+        </button>
+        <strong>Attencion!</strong> @ViewBag.Script
+    </div>
+}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            @Html.ActionLink("New Shipper", "Add", null, new { @class = "btn btn-success" })
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <tr>
+                    <th>Code</th>
+                    <th>Company Name</th>
+                    <th>Phone Number</th>
+                    <th>Actions</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.ShipperID</td>
+                        <td>@item.CompanyName</td>
+                        <td>@item.PhoneNumber</td>
+                        <td>
+                            <input onclick="jsDelete(@item.ShipperID);" type="button" value="Delete" class="btn btn-danger" />
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ShipperID }, new { @class = "btn btn-warning", onclick = "return cofirm('Are you sure?')", @id = "BtnDelete" })
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ShipperID }, new { @class = "btn btn-primary" })
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+         function jsDelete(id) {
+             if (confirm("Are you sure?????")) {
+                url = "@Url.Content("~/Shippers/Delete")" + "/"+id;
+
+                $.post(url, function (data) {
+
+                    if (data == "1") {
+                        alert("Shipper Delete");
+                        document.location.href = "@Url.Content("~/Shippers/")";
+                    } else if (data == "2"){
+                        alert("Error with delete operation, however the system looked for a way to solve it");
+                        document.location.href = "@Url.Content("~/Shippers/")";
+                    } else {
+                        alert("Ups!!! He have a system problem...");                        
+                    }
+                 })
+            }
+        }
+    </script>
+}
