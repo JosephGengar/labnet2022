@@ -4,19 +4,23 @@
 }
 <br />
 <br />
+
 @if (ViewBag.Alert != null)
-{
-    <script>
-        alert("@ViewBag.Alert");
-    </script>
-}
-@if (ViewBag.text != null)
 {
     <div class="alert alert-dismissable alert-info">
         <button type="button" class="close" data-dismiss="alert">
             &times;
         </button>
-        <strong>Attencion!</strong> @ViewBag.text
+        <strong>Notifications: </strong> @ViewBag.Alert
+    </div>
+}
+else
+{
+    <div class="alert alert-dismissable alert-info">
+        <button type="button" class="close" data-dismiss="alert">
+            &times;
+        </button>
+        <strong>Notifications: We Have a system problem!!!!</strong>
     </div>
 }
 <div class="container">
@@ -61,13 +65,13 @@
                 $.post(url, function (data) {
 
                     if (data == "1") {
-                        alert("Shipper Delete");
+                        alert("Shipper Deleted");
                         document.location.href = "@Url.Content("~/Shippers/")";
                     } else if (data == "2"){
                         alert("Error with delete operation, however the system looked for a way to solve it");
                         document.location.href = "@Url.Content("~/Shippers/")";
                     } else {
-                        alert("Ups!!! He have a system problem...");                        
+                        alert("Ups!!! He have a system problem...");
                     }
                  })
             }

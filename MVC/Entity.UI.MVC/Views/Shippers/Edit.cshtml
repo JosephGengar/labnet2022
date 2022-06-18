@@ -1,4 +1,4 @@
-﻿@model Entity.UI.MVC.Models.BackModels.ShipperAddView
+﻿@model Entity.UI.MVC.Models.BackModels.ShippersBackView
 @{
     ViewBag.Title = "Shippers Creeepers";
 }
@@ -8,16 +8,16 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h2>Add Shipper</h2>
+            <h2>Edit Shipper</h2>
         </div>
     </div>
-   
 
-    @using (Html.BeginForm($"Add", "Shippers", FormMethod.Post, new { role = "form", @class = "" }))
+
+    @using (Html.BeginForm($"Edit", "Shippers", FormMethod.Post, new { role = "form", @class = "" }))
     {
         <div class="row">
             <div class="col-md-12">
-              
+                @Html.HiddenFor(s => s.ShipperID)
                 <div>
                     @Html.LabelFor(s => s.CompanyName)
                     @Html.TextBoxFor(s => s.CompanyName, new { @class = "form-control" })
@@ -39,4 +39,3 @@
     }
 
 </div>
-

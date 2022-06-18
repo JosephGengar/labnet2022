@@ -22,33 +22,56 @@ namespace Entity.UI.MVC.Controllers
                 ShipperID = s.ShipperID,
                 CompanyName = s.CompanyName,
                 PhoneNumber = s.Phone
-            }).ToList();
-            ViewBag.Script = "List Loaded 2";
-            ViewBag.Alert = "List Loaded";
+            }).ToList();        
+            ViewBag.Alert = "Data uploaded successfully";
             return View(ShippersBackViewList);
         }
-        [HttpGet]
         public ActionResult Add()
-        {
+        {          
             return View();
         }
         [HttpPost]
-        public ActionResult Add(ShippersBackView model)
+        public ActionResult Add(ShipperAddView model)
         {
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
-            Shippers oShippers = new Shippers();
+            Shippers oShippers = new Shippers();         
             oShippers.CompanyName = model.CompanyName;
             oShippers.Phone = model.PhoneNumber;
             oShippersL.Add(oShippers);
-            ViewBag.text = "Add Shipper!!!";
             return Redirect(Url.Content("~/Shippers/"));
         }
 
-
-
+        public ActionResult Edit(int id)
+        {
+            Shippers oShipeers = oShippersL.GetOne(id);
+            ShippersBackView oShipperBV = new ShippersBackView
+            {
+                ShipperID = oShipeers.ShipperID,
+                CompanyName = oShipeers.CompanyName,
+                PhoneNumber = oShipeers.Phone
+            };
+            return View("Edit", oShipperBV);
+        }
+        [HttpPost]
+        public ActionResult Edit(ShippersBackView model)
+        {
+            if (!ModelState.IsValid)
+            {              
+                    return View(model);                                            
+            }
+            
+            Shippers oShippers = new Shippers
+            {
+               ShipperID = model.ShipperID,
+               CompanyName = model.CompanyName,
+               Phone = model.PhoneNumber
+            };
+            oShippersL.Edit(oShippers);
+            return Redirect(Url.Content("~/Shippers/"));
+        }
 
         [HttpPost]
         public ActionResult Delete(int id)

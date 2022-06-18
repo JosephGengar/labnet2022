@@ -1,0 +1,47 @@
+﻿@model List<Entity.UI.MVC.Models.BackModels.TerritoriesBackView>
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<br />
+
+@if (ViewBag.Alert != null)
+{
+    <div class="alert alert-dismissable alert-info">
+        <button type="button" class="close" data-dismiss="alert">
+            &times;
+        </button>
+        <strong>Notifications: </strong> @ViewBag.Alert
+    </div>
+}
+else
+{
+    <div class="alert alert-dismissable alert-info">
+        <button type="button" class="close" data-dismiss="alert">
+            &times;
+        </button>
+        <strong>Notifications: We Have a system problem!!!!</strong>
+    </div>
+}
+<div class="container">
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <tr>
+                    <th>Code</th>
+                    <th>Description</th>
+                    <th>Region ID</th>                    
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.TerritoriesID</td>
+                        <td>@item.TerritoriesDescripcion</td>
+                        <td>@item.RegionID</td>                      
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
