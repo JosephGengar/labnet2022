@@ -3,9 +3,6 @@
     ViewBag.Title = "Index";
 }
 <br />
-<h1>Territories List</h1>
-<br />
-
 @if (ViewBag.Alert != null)
 {
     <div class="alert alert-dismissable alert-info">
@@ -24,6 +21,9 @@ else
         <strong>Notifications: We Have a system problem!!!!</strong>
     </div>
 }
+<br />
+<h1>Territories List</h1>
+
 <div class="container">
     <br />
     <div class="row">
@@ -32,14 +32,14 @@ else
                 <tr>
                     <th>Code</th>
                     <th>Description</th>
-                    <th>Region ID</th>                    
+                    <th>Region ID</th>
                 </tr>
                 @foreach (var item in Model)
                 {
                     <tr>
                         <td>@item.TerritoriesID</td>
                         <td>@item.TerritoriesDescripcion</td>
-                        <td>@item.RegionID</td>                      
+                        <td>@item.RegionID</td>
                     </tr>
                 }
             </table>

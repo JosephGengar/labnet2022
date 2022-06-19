@@ -33,44 +33,71 @@ namespace Entity.UI.MVC.Controllers
         [HttpPost]
         public ActionResult Add(ShipperAddView model)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return View(model);
+                if (!ModelState.IsValid)
+                {
+                    return View(model);
+                }
+                Shippers oShippers = new Shippers();
+                oShippers.CompanyName = model.CompanyName;
+                oShippers.Phone = model.PhoneNumber;
+                oShippersL.Add(oShippers);
+                return Redirect(Url.Content("~/Shippers/"));
             }
-            Shippers oShippers = new Shippers();         
-            oShippers.CompanyName = model.CompanyName;
-            oShippers.Phone = model.PhoneNumber;
-            oShippersL.Add(oShippers);
-            return Redirect(Url.Content("~/Shippers/"));
+            catch (Exception)
+            {
+                ViewBag.text = "We have a System problem...";
+                return View();
+            }
+           
         }
 
         public ActionResult Edit(int id)
         {
-            Shippers oShipeers = oShippersL.GetOne(id);
-            ShippersBackView oShipperBV = new ShippersBackView
+            try
             {
-                ShipperID = oShipeers.ShipperID,
-                CompanyName = oShipeers.CompanyName,
-                PhoneNumber = oShipeers.Phone
-            };
-            return View("Edit", oShipperBV);
+                Shippers oShipeers = oShippersL.GetOne(id);
+                ShippersBackView oShipperBV = new ShippersBackView
+                {
+                    ShipperID = oShipeers.ShipperID,
+                    CompanyName = oShipeers.CompanyName,
+                    PhoneNumber = oShipeers.Phone
+                };
+                return View("Edit", oShipperBV);
+            }
+            catch (Exception)
+            {
+                ViewBag.text = "We have a System problems...";
+                return View();
+            }
+           
         }
         [HttpPost]
         public ActionResult Edit(ShippersBackView model)
         {
-            if (!ModelState.IsValid)
-            {              
-                    return View(model);                                            
-            }
-            
-            Shippers oShippers = new Shippers
+            try
             {
-               ShipperID = model.ShipperID,
-               CompanyName = model.CompanyName,
-               Phone = model.PhoneNumber
-            };
-            oShippersL.Edit(oShippers);
-            return Redirect(Url.Content("~/Shippers/"));
+                if (!ModelState.IsValid)
+                {
+                    return View(model);
+                }
+
+                Shippers oShippers = new Shippers
+                {
+                    ShipperID = model.ShipperID,
+                    CompanyName = model.CompanyName,
+                    Phone = model.PhoneNumber
+                };
+                oShippersL.Edit(oShippers);
+                return Redirect(Url.Content("~/Shippers/"));
+            }
+            catch (Exception ex)
+            {
+                ViewBag.text = "We have a system problem...";
+                ViewBag.error = ex.Message;
+                return View();
+            }        
         }
 
         [HttpPost]

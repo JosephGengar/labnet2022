@@ -24,12 +24,13 @@ namespace Entity.Logic
             db.SaveChanges();
         }
         public void Edit(Shippers oShippers)
-        {
-            var ShipperE = db.Shippers.Find(oShippers.ShipperID);
-            ShipperE.CompanyName = oShippers.CompanyName;
-            ShipperE.Phone = oShippers.Phone;
-            db.Entry(ShipperE).State = System.Data.Entity.EntityState.Modified;
-            db.SaveChanges();
+        {          
+                var ShipperE = db.Shippers.Find(oShippers.ShipperID);
+                ShipperE.CompanyName = oShippers.CompanyName;
+                ShipperE.Phone = oShippers.Phone;
+                db.Entry(ShipperE).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();         
+          
         }
         public void Delete(int id)
         {
