@@ -1,14 +1,14 @@
-﻿@model Entity.UI.MVC.Models.BackModels.ShipperAddView
+﻿@model Entity.UI.MVC.Models.BackModels.ShippersBackView
 @{
     ViewBag.Title = "Shippers Creeepers";
 }
-@if (ViewBag.text != null)
+@if (ViewBag.message != null)
 {
     <div class="alert alert-dismissable alert-info">
         <button type="button" class="close" data-dismiss="alert">
             &times;
         </button>
-        <strong>Notifications: </strong> @ViewBag.text
+        <strong>Notifications: </strong> @ViewBag.message
     </div>
 }
 <h2>Shippers Creepers</h2>
@@ -16,16 +16,25 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h2>Add Shipper</h2>
+            @if (ViewBag.text != null)
+            {
+                <h2>Edit Shipper</h2> }
+            else
+            {
+                <h2>Add Shipper</h2> }
         </div>
     </div>
 
-
-    @using (Html.BeginForm($"Add", "Shippers", FormMethod.Post, new { role = "form", @class = "" }))
+    @using (Html.BeginForm($"AddEdit", "Shippers", FormMethod.Post, new { role = "form", @class = "" }))
     {
         <div class="row">
             <div class="col-md-12">
-
+                @if (ViewBag.text != null)
+                {
+                    @Html.HiddenFor(s => s.ShipperID) }
+                else
+                {
+                @Html.HiddenFor(s => s.ShipperID, new { Value = 0 })}
                 <div>
                     @Html.LabelFor(s => s.CompanyName)
                     @Html.TextBoxFor(s => s.CompanyName, new { @class = "form-control" })

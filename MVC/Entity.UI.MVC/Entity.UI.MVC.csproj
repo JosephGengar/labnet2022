@@ -133,7 +133,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\BackModels\ShipperAddView.cs" />
     <Compile Include="Models\BackModels\ShippersBackView.cs" />
     <Compile Include="Models\BackModels\TerritoriesBackView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -175,8 +174,7 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shippers\Index.cshtml" />
-    <Content Include="Views\Shippers\Add.cshtml" />
-    <Content Include="Views\Shippers\Edit.cshtml" />
+    <Content Include="Views\Shippers\AddEdit.cshtml" />
     <Content Include="Views\Territories\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

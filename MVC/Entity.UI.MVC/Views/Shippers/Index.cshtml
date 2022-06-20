@@ -27,7 +27,7 @@ else
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            @Html.ActionLink("New Shipper", "Add", null, new { @class = "btn btn-success" })
+            @Html.ActionLink("New Shipper", "AddEdit", null, new { @class = "btn btn-success" })
         </div>
     </div>
     <br />
@@ -47,7 +47,7 @@ else
                         <td>@item.CompanyName</td>
                         <td>@item.PhoneNumber</td>
                         <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.ShipperID }, new { @class = "btn btn-primary" })
+                            @Html.ActionLink("Edit", "LoadEdit", new { id = item.ShipperID }, new { @class = "btn btn-primary" })
                             <input onclick="jsDelete(@item.ShipperID);" type="button" value="Delete" class="btn btn-danger" />
                         </td>
                     </tr>

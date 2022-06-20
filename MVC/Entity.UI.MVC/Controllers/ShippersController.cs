@@ -26,34 +26,11 @@ namespace Entity.UI.MVC.Controllers
             ViewBag.Alert = "Data uploaded successfully";
             return View(ShippersBackViewList);
         }
-        public ActionResult Add()
+        public ActionResult AddEdit()
         {          
             return View();
         }
-        [HttpPost]
-        public ActionResult Add(ShipperAddView model)
-        {
-            try
-            {
-                if (!ModelState.IsValid)
-                {
-                    return View(model);
-                }
-                Shippers oShippers = new Shippers();
-                oShippers.CompanyName = model.CompanyName;
-                oShippers.Phone = model.PhoneNumber;
-                oShippersL.Add(oShippers);
-                return Redirect(Url.Content("~/Shippers/"));
-            }
-            catch (Exception)
-            {
-                ViewBag.text = "We have a System problem...";
-                return View();
-            }
-           
-        }
-
-        public ActionResult Edit(int id)
+        public ActionResult LoadEdit(int id)
         {
             try
             {
@@ -64,40 +41,62 @@ namespace Entity.UI.MVC.Controllers
                     CompanyName = oShipeers.CompanyName,
                     PhoneNumber = oShipeers.Phone
                 };
-                return View("Edit", oShipperBV);
+                ViewBag.text = "Edit";
+                return View("AddEdit", oShipperBV);
             }
             catch (Exception)
             {
-                ViewBag.text = "We have a System problems...";
+                ViewBag.message = "We have a System problems...";
                 return View();
             }
-           
+
         }
+        //- Investiguar como utilizar la misma vista y controlador para realizar el Insert y Update.
         [HttpPost]
-        public ActionResult Edit(ShippersBackView model)
+        public ActionResult AddEdit(ShippersBackView model)
         {
             try
             {
-                if (!ModelState.IsValid)
+                if (model.ShipperID != 0)
                 {
-                    return View(model);
+                    if (!ModelState.IsValid)
+                    {
+                        ViewBag.text = "Edit";
+                        return View(model);
+                    }
+                    else
+                    {
+                        Shippers oShippers = new Shippers
+                        {
+                            ShipperID = model.ShipperID,
+                            CompanyName = model.CompanyName,
+                            Phone = model.PhoneNumber
+                        };
+                        oShippersL.Edit(oShippers);
+                        return Redirect(Url.Content("~/Shippers/"));
+                    }
                 }
-
-                Shippers oShippers = new Shippers
+                else
                 {
-                    ShipperID = model.ShipperID,
-                    CompanyName = model.CompanyName,
-                    Phone = model.PhoneNumber
-                };
-                oShippersL.Edit(oShippers);
-                return Redirect(Url.Content("~/Shippers/"));
+                    if (!ModelState.IsValid)
+                    {
+                        return View(model);
+                    }
+                    else
+                    {
+                        Shippers oShippers = new Shippers();
+                        oShippers.CompanyName = model.CompanyName;
+                        oShippers.Phone = model.PhoneNumber;
+                        oShippersL.Add(oShippers);
+                        return Redirect(Url.Content("~/Shippers/"));
+                    }
+                }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                ViewBag.text = "We have a system problem...";
-                ViewBag.error = ex.Message;
+                ViewBag.text = "We have a System problem...";
                 return View();
-            }        
+            }         
         }
 
         [HttpPost]
