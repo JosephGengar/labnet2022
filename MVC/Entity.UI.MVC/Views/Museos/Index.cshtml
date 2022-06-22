@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1>API HTTPCLIENT</h1>
+<h2>Museums</h2>
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Direccion</th>
+                    <th>Telefono</th>
+                    <th>Email</th>
+                    <th>Mas Info</th>
+                </tr>
+                @foreach (var item in Model.results)
+                {
+                    <tr>
+                        <td>@item.nombre</td>
+                        <td>@item.direccion</td>
+                        <td>@item.telefono</td>
+                        <td>@item.email</td>
+                        <td><a href="@item.link" class="btn btn-success">Ir a Web</a></td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

@@ -127,7 +127,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CulturaController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MuseosController.cs" />
     <Compile Include="Controllers\ShippersController.cs" />
     <Compile Include="Controllers\TerritoriesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -176,6 +178,8 @@
     <Content Include="Views\Shippers\Index.cshtml" />
     <Content Include="Views\Shippers\AddEdit.cshtml" />
     <Content Include="Views\Territories\Index.cshtml" />
+    <Content Include="Views\Cultura\Index.cshtml" />
+    <Content Include="Views\Museos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

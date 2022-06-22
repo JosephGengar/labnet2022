@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1>API AJAX METHOD</h1>
+
+<h2 style="font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">Argentinian culture</h2>
+
+<div class="row">
+    <div class="col-md-12" style="background-color: beige">
+        <h2>Institutes</h2>
+        <p>
+            Lorem Ipsum is not a good impression of what would a standard paragraphs are virtually identical sizes +
+            and lack special characters. On the contrary, Lorem Ipsum is just after a paragraph type of course you have
+            to add formatting.
+        </p>
+        <button id="button1" class="btn btn-primary" style="margin-bottom: 8px">See Institutes &raquo;</button>
+        <div id="agregar1">
+            <div id="lista1" class="class1"></div>
+            <div id="btnVolver" style="padding-bottom: 10px"></div>
+        </div>
+    </div><br /><br />
+    <div class="col-md-12" style="background-color: beige; margin-top:30px">
+        <h2>Formalities</h2>
+        <p>
+            There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some
+            form, by injected humour, or randomised words which don't look even slightly believable.
+        </p>
+        <button id="button2" class="btn btn-primary" style="margin-bottom: 8px">See Formalities &raquo;</button>
+        <div id="lista2"></div>
+    </div> <br /><br />
+</div>
+
+@section scripts{
+    <script>
+        $("#button1").click(function () {
+            $.ajax({
+                type: "GET",
+                url: 'https://www.cultura.gob.ar/api/v2.0/institutos/',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    console.log(data.results);
+                    var lista1 = $(".class1");
+                    $.each(data.results, function (i, item) {
+                        lista1.append(
+                            '<div>' +
+                            '♠ ' + item.nombre + '<br>' +
+                            '</div>'
+                        );
+                    })
+                },
+            });
+            $("#btnVolver").html('<button id="btn1" class="btn btn-default">Volver</button>');
+        });
+        $("#button2").click(function () {
+            $.ajax({
+                type: "GET",
+                url: 'https://www.cultura.gob.ar/api/v2.0/tramites/',
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                success: function (data) {
+                    console.log(data.results);
+                    var lista2 = $("#lista2");
+                    $.each(data.results, function (i, item2) {
+                        lista2.append(
+                            '<div>' +
+                            '♠ ' + item2.titulo + '<br>' +
+                            '</div>'
+                        );
+                    })
+                },
+            });
+        });
+        $("#btnVolver").click(function () {
+            $("#lista1").remove();
+            $("#agregar1").html('<divid="lista1" class="class1"></div>')
+            console.log("funciona?");
+        });
+    </script>
+}
+
+
