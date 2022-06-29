@@ -1,0 +1,29 @@
+<div class="container">
+         
+        <h1 mat-dialog-title>{{shipperD!=null ? 'Edit Shipper' : 'New Shipper'}}</h1>
+        <div mat-dialog-content >
+            <form [formGroup]="frm" novalidate>
+            <mat-form-field>
+                <mat-label>Company Name</mat-label>
+                <input type="text" matInput formControlName = "company" >                                                
+            </mat-form-field>
+            <div *ngIf="frm.get('company')?.hasError('required') && (frm.get('company')?.dirty || frm.get('company')?.touched)" class="sideUp">You must provide a <strong>Company Name</strong></div> 
+            <div *ngIf="frm.get('company')?.hasError('maxlength')" class="sideUp">Only <strong> 25 Characthers maximum</strong></div> 
+            <div *ngIf="frm.get('company')?.hasError('companyExists') && frm.get('company')?.dirty " class="sideUp"><strong>that name exists, try another</strong></div> 
+
+            <mat-form-field>
+                <mat-label>Phone Number</mat-label>
+                <input type="text" matInput formControlName = "phone">               
+            </mat-form-field>
+            <div *ngIf="frm.get('phone')?.hasError('required') && frm.get('phone')?.dirty" class="sideUp">You must provide a <strong>Phone Number</strong></div> 
+            <div *ngIf="frm.get('phone')?.hasError('maxlength')" class="sideUp">Only <strong> 25 Characthers maximum</strong></div> 
+
+            <div mat-dialog-actions style="justify-content: center;margin-bottom: 30px;">
+                <button mat-raised-button color="primary" type="submit" [disabled]="this.frm.invalid" (click)="shipperD !== null ? editShipper() : addShipper()"> Save </button>
+                <button mat-raised-button color="warn" type="button" (click)="close()">Close</button>
+                <button mat-raised-button color="accent" type="button" (click)="clean()">Clean Up</button>
+            </div>       
+        </form>
+        </div>      
+    
+</div>

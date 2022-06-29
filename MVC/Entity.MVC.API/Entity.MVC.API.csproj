@@ -230,6 +230,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="AngularGit\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
