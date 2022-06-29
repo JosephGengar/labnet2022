@@ -1,4 +1,5 @@
-﻿using Entity.Entities;
+﻿using Entity.Data;
+using Entity.Entities;
 using Entity.Logic;
 using Entity.MVC.API.Models;
 using Entity.MVC.API.Models.ViewModels;
@@ -9,9 +10,11 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace Entity.MVC.API.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class ShippersController : ApiController
     {
         ShippersLogic oShippersL = new ShippersLogic();
@@ -29,11 +32,11 @@ namespace Entity.MVC.API.Controllers
                     PhoneNumber = s.Phone
                 }).ToList();
                 oResponse.data = ShippersBackViewList;
-                oResponse.exito = 1;
+                oResponse.sucess = 1;
             }
             catch (Exception ex)
             {
-                oResponse.exito = 0;
+                oResponse.sucess = 0;
                 oResponse.message = ex.Message;
             }
             return Ok(oResponse);
@@ -47,7 +50,7 @@ namespace Entity.MVC.API.Controllers
             try
             {
                 oShippersL.Delete(id);
-                oResponse.exito = 1;
+                oResponse.sucess = 1;
                 oResponse.message = "Shipper Deleted";
             }
             catch (Exception ex)
@@ -55,12 +58,12 @@ namespace Entity.MVC.API.Controllers
                 if (ex.InnerException != null)
                 {
                     oShippersL.LogicDelete(id);
-                    oResponse.exito = 1;
+                    oResponse.sucess = 1;
                     oResponse.message = "Error with delete operation, however the system looked for a way to solve it";
                 }
                 else
                 {
-                    oResponse.exito = 0;
+                    oResponse.sucess = 0;
                     oResponse.message = ex.Message;
                 }              
             }
@@ -92,7 +95,7 @@ namespace Entity.MVC.API.Controllers
                             Phone = model.PhoneNumber
                         };
                         oShippersL.Edit(oShippers);
-                        oResponse.exito = 1;
+                        oResponse.sucess = 1;
                         oResponse.message = "Shipper Edited";
                     }
                 }
@@ -108,15 +111,42 @@ namespace Entity.MVC.API.Controllers
                         oShippers.CompanyName = model.CompanyName;
                         oShippers.Phone = model.PhoneNumber;
                         oShippersL.Add(oShippers);
-                        oResponse.exito = 1;
+                        oResponse.sucess = 1;
                         oResponse.message = "Saved Shipper";
                     }
                 }
             }
             catch (Exception ex)
             {
-                oResponse.exito = 0;
+                oResponse.sucess = 0;
                 oResponse.message = ex.Message;
+            }
+            return Ok(oResponse);
+        }
+        //metodo especial para validar en angular un Company Name diferente
+        [HttpPatch]
+        public IHttpActionResult GetName(ShippersView NameView)
+        {
+            ResponseBack oResponse = new ResponseBack();
+            try
+            {
+                using (NorthWindContext db = new NorthWindContext())
+                {
+                    if (db.Shippers.Where(s => s.CompanyName == NameView.CompanyName).Count() > 0)
+                    {
+                        oResponse.sucess = 1;
+                        oResponse.message = "Existente";
+                    }
+                    else
+                    {
+                        oResponse.sucess = 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                oResponse.sucess = 0;
+                throw ex;
             }
             return Ok(oResponse);
         }

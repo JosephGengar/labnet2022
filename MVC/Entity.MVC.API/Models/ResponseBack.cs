@@ -7,7 +7,7 @@ namespace Entity.MVC.API.Models
 {
     public class ResponseBack
     {
-        public int exito { get; set; }
+        public int sucess { get; set; }
         public object data { get; set; }
         public string message { get; set; }
     }
